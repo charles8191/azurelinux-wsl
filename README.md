@@ -15,5 +15,5 @@ This is based on the RHEL UBI images without any modifications, other than a `dn
 > ```
 > And if you have installed this before, run this as well:
 > ```
-> rd C:\RHEL-WSL /s /q
+> rd %systemdrive%:\RHEL-WSL /s /q
 > ```
