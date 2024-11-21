@@ -25,6 +25,8 @@ jobs:
           podman exec ubi dnf upgrade -y
           podman exec ubi dnf clean all
           podman export -o rhel.tar ubi
+          podman kill ubi
+          podman rm ubi
       - name: Package
         run: |
           set -ex
