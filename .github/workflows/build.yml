@@ -1,0 +1,38 @@
+name: ISO
+
+on:
+  workflow_dispatch:
+  push:
+  schedule:
+    - cron: '0 0 * * 1'
+
+env:
+  version: 9
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get current date
+        id: date
+        run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+      - name: Create tarball for UBI ${{ env.version }}
+        run: |
+          set -ex
+          podman run --name=ubi -d docker.io/redhat/ubi${version}
+          podman exec ubi dnf upgrade -y
+          podman exec ubi dnf clean all
+          podman export -o rhel.tar
+      - name: Package
+        run: |
+          set -ex
+          zip pkg.zip rhel.tar install.cmd 
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.date.outputs.date }}
+          name: Build on ${{ steps.date.outputs.date }}
+          files: |
+            pkg.zip
