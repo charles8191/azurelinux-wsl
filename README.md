@@ -1,5 +1,7 @@
 # RHEL for WSL
 
+![Screenshot](shot.png)
+
 This is based on the RHEL UBI images without any modifications, other than a `dnf upgrade` and `dnf clean all`.
 
 1. Extract the ZIP from Releases
