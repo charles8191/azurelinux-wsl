@@ -24,7 +24,7 @@ jobs:
           podman run --name=ubi -di docker.io/redhat/ubi${version}
           podman exec ubi dnf upgrade -y
           podman exec ubi dnf clean all
-          podman export -o rhel.tar
+          podman export -o rhel.tar ubi
       - name: Package
         run: |
           set -ex
