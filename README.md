@@ -7,8 +7,11 @@ This is based on the RHEL UBI images without any modifications, other than a `dn
 3. Done!
 
 > [!NOTE]  
-> If you have installed this before, or already have a distro named "RHEL" installed, run this in an elevated Command Prompt:
+> If you have installed this before, or already have a distro named `RHEL` installed, run this in an elevated Command Prompt:
 > ```
 > wsl --unregister RHEL
+> ```
+> And if you have installed this before, run this as well:
+> ```
 > rd C:\RHEL-WSL /s /q
 > ```
