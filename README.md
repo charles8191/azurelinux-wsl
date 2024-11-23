@@ -1,6 +1,6 @@
 # Azure Linux for WSL
 
-This is based on the Azure Linux Base image without any modifications, other than a `dnf upgrade` and `dnf clean all`.
+This is based on the Azure Linux Base image without any modifications, other than a `tdnf upgrade` and `tdnf clean all`.
 
 1. Extract the ZIP from the Releases page.
 2. Run `install.cmd`.

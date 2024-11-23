@@ -22,8 +22,8 @@ jobs:
         run: |
           set -ex
           podman run --name=cont -di mcr.microsoft.com/azurelinux/base/core:${{ env.version }}
-          podman exec cont dnf upgrade -y
-          podman exec cont dnf clean all
+          podman exec cont tdnf upgrade -y
+          podman exec cont tdnf clean all
           podman export -o distro.tar cont
           podman kill cont
           podman rm cont
