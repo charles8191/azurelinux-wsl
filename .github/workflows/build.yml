@@ -23,7 +23,13 @@ jobs:
           set -ex
           podman run --name=cont -di mcr.microsoft.com/azurelinux/base/core:${{ env.version }}
           podman exec cont tdnf upgrade -y
+          podman exec cont tdnf install util-linux shadow-utils -y
           podman exec cont tdnf clean all
+          podman exec cont pwconv
+          podman exec cont grpconv
+          podman exec cont chmod 0744 /etc/shadow
+          podman exec cont chmod 0744 /etc/gshadow
+          podman exec cont bash -c 'echo nameserver 208.67.222.222 > /etc/resolv.conf'
           podman export -o distro.tar cont
           podman kill cont
           podman rm cont
