@@ -7,7 +7,7 @@ on:
     - cron: '0 0 * * 1'
 
 env:
-  version: 3.0
+  version: '3.0'
 
 jobs:
   build:
