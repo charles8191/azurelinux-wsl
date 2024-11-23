@@ -20,6 +20,6 @@ This is based on the Azure Linux Base image.
 
 - Upgrade packages
 - Add `util-linux` and `shadow-utils`
-- OpenDNS nameserver (if automatic `/etc/resolv.conf` generation was disabled)
-- `/etc/shadow` and `/etc/gshadow`
 - Clean tdnf cache
+- `/etc/shadow` and `/etc/gshadow`
+- OpenDNS nameserver (if automatic `/etc/resolv.conf` generation was disabled)
